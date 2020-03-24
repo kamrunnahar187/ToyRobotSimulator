@@ -1,0 +1,41 @@
+<?php
+require 'vendor/autoload.php';
+
+use src\ToyRobot;
+use src\SquareBoard;
+use src\Position;
+use src\Direction ;
+use src\CommandUtils;
+use src\ToyRobotSimulator;
+
+$robotposition = new Position(5,5);
+$robot = new ToyRobot($robotposition,new Direction());
+
+$simulator = new ToyRobotSimulator($robot);
+
+if ( sizeof($argv) < 2 ){
+    echo "Enter one of the following commands, PLACE must be first command, REPORT shows robots current position\n";
+    $str = "PLACE X,Y,F ".PHP_EOL.
+        "MOVE"      .PHP_EOL.
+        "LEFT"      .PHP_EOL.
+        "RIGHT"     .PHP_EOL.
+        "REPORT"    .PHP_EOL;
+    echo $str ;
+}
+
+$input = $argv[1] ?? 'php://stdin';
+$handle = fopen($input, 'r');
+    while (($input = fgets($handle))) {
+
+         try {
+             $output = $simulator->execute($input);
+             if ($output){
+                echo $output.PHP_EOL;
+             }
+         }
+         catch (InvalidArgumentException $e) {
+             echo $e->getMessage().PHP_EOL;
+         }
+    }
+    fclose($handle);
+?>

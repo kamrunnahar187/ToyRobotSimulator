@@ -1,0 +1,20 @@
+{
+  "name": "shapan/toy-robot",
+  "description": "Toy robot simulator",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "kamrunnahar187",
+      "email": "sohabina187@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Test\\": "tests/",
+      "src\\": "src/"
+    }
+  },
+  "require": {
+    "phpunit/phpunit": "^7.5"
+  }
+}
