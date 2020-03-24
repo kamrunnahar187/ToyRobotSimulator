@@ -46,7 +46,7 @@ Setup and Execution
 
 Clone this repository:
 
-- git clone https://github.com/kamrunnahar187/ToyRobot.git
+- git clone https://github.com/kamrunnahar187/ToyRobotSimulator.git
 ```bash
 $cd ToyRobot
 #run from CLI
