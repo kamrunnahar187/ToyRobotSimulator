@@ -12,6 +12,15 @@ use src\ToyRobot;
 class ToyRobotTest extends TestCase
 {
 
+    public function testSimple()
+    {
+        $pos = new Position(1, 2);
+        $direction = new Direction();
+        $robot = new ToyRobot($pos, $direction);
+        $robot->place(3, 3, 'WEST');
+        $robot->rotate(-1);
+        $this->assertEquals("SOUTH", $direction->getDirection());
+    }
     public function testLeft()
     {
         $pos = new Position(5, 5);
